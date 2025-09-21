@@ -1,0 +1,74 @@
+version: '3.7'
+
+services:
+  pebble:
+    image: ghcr.io/letsencrypt/pebble:latest
+    #    command: -config test/config/pebble-config.json -strict -dnsserver 10.30.50.3:8053
+    volumes:
+      - ./pebble/pebble-config.json:/test/config/pebble-config.json
+      - ./pebble/pebble.crt:/test/certs/localhost/cert.pem
+      - ./pebble/pebble.key:/test/certs/localhost/key.pem
+    ports:
+      - "14000:14000" # HTTPS ACME API
+      - "15000:15000" # HTTPS Management API
+    #      - "80:80"            # Map HTTP-01 challenge port to host's 80
+    #      - "443:443"          # Map TLS-ALPN-01 challenge port to host's 443
+    environment:
+      PEBBLE_VA_NOSLEEP: 1
+      PEBBLE_VA_ALWAYS_VALID: 1
+
+  nginx-reverse-proxy:
+    image: nginxproxy/nginx-proxy:alpine
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./dist/proxy/certs:/etc/nginx/certs:ro
+      - ./dist/proxy/html:/usr/share/nginx/html
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: nginx-proxy-acme
+    volumes_from:
+      - nginx-reverse-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./dist/proxy/certs:/etc/nginx/certs:rw
+      - ./dist/acme:/etc/acme.sh
+      - ./pebble/pebble.crt:/etc/ssl/certs/ca-certificates.crt:ro
+    environment:
+      DEFAULT_EMAIL: "testemail@test.com"
+      ACME_CA_URI: "https://host.docker.internal:14000/dir"
+      CA_BUNDLE: "/etc/ssl/certs/ca-certificates.crt"
+  #      DEBUG: 1
+
+  # Apps
+  app1:
+    image: nginx:alpine
+    environment:
+      VIRTUAL_HOST: app1.local
+      LETSENCRYPT_HOST: app1.local
+    volumes:
+      - ./apps/app1:/usr/share/nginx/html
+    depends_on:
+      - acme-companion
+      - nginx-reverse-proxy
+  app2:
+    image: nginx:alpine
+    environment:
+      VIRTUAL_HOST: app2.local
+      LETSENCRYPT_HOST: app2.local
+    volumes:
+      - ./apps/app2:/usr/share/nginx/html
+
+  app3:
+    image: nginx:alpine
+    environment:
+      VIRTUAL_HOST: app3.local
+      LETSENCRYPT_HOST: app3.local
+    volumes:
+      - ./apps/app3:/usr/share/nginx/
+
+

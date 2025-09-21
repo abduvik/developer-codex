@@ -1,0 +1,26 @@
+{
+  "name": "vuepress-site",
+  "version": "0.0.1",
+  "description": "A VuePress project",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vuepress build ../content --config vuepress/config.js",
+    "start:clean": "vuepress dev ../content --config vuepress/config.js",
+    "start": "vuepress dev ../content --config vuepress/config.js",
+    "docs:update-package": "npx vp-update"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
+    "@vuepress/theme-default": "2.0.0-rc.25",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "vue": "^3.4.0",
+    "vuepress": "2.0.0-rc.9"
+  },
+  "dependencies": {
+    "markdown-it-video": "^0.6.3",
+    "posthog-js": "^1.207.1"
+  }
+}

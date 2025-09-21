@@ -1,4 +1,14 @@
 {
+  "plugins": ["prettier-plugin-go-template"],
   "tabWidth": 2,
-  "useTabs": false
+  "useTabs": false,
+  "overrides": [
+    {
+      "files": "*.md",
+      "options": {
+        "proseWrap": "always",
+        "printWidth": 120
+      }
+    }
+  ]
 }

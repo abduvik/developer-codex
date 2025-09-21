@@ -1,4 +1,63 @@
 dist
 node_modules
+vendor
 build
 .db
+.history
+
+ghost/**
+.terraform
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+test-field
+
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+**/vuepress/.temp
+**/vuepress/.cache
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# End of https://mrkandreev.name/snippets/gitignore-generator/#Java
