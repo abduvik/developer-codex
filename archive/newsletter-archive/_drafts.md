@@ -52,6 +52,7 @@
 - [This Upgraded HP Workstation/Server Is CRAZY Fun](https://www.youtube.com/watch?v=coKPcj4xNNA)
 - [A GPU-powered Pi for more efficient AI?](https://www.youtube.com/watch?v=AyR7iCS7gNI)
 - [How to Build Systems to Actually Achieve Your Goals](https://www.youtube.com/watch?v=fXyRprdoEoE)
+- [These Tools Changed My Developer Life!](https://www.youtube.com/watch?v=WvmIySApcS8)
 
 ## Links Tools
 

@@ -82,3 +82,18 @@ develop (if needed).
 We can only merge develop into master and we need to tag the commit with a release version.
 
 [Gitflow Workflow from Atlassian](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+
+### Sub-modules
+
+Submodules helps with combining multiple repos into a single repo and apply commands on it.
+
+- `git submodule add <http_repo_link> <local_path>`: Add a git submodule to current repo
+- `git submodule add -b main <http_repo_link> <local_path>`: Add a git submodule to current repo and track a certain
+  branch
+
+To remove a submodule:
+
+```sh
+git rm -rf <submodule_path>
+rm -rf .git/modules/<submodule_path>
+```
