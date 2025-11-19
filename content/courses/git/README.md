@@ -38,7 +38,7 @@ title: Git Version Control
 - `git pull`: Fetch commits and merge
 - `git fetch --prune`: Remove branches that no longer exists on remote before fetching
 - `git remote prune origin`: Remove branches from local repository that no longer in remote
-
+- `git restore -s <branch_name> -- <file_path>`: Restore a file to its original form from a specific branch
 ## Collaboration
 
 ### Pull Request
