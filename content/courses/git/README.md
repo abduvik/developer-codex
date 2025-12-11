@@ -34,6 +34,8 @@ title: Git Version Control
 - `git push --set-upstream <remote-name> <branch-name> <repository-name>`: Set a remote for a branch
 - `git push -u <remote-name> <branch-name> <repository-name>`: Set a remote for a branch (Same to the above one)
 - `git push`: Push local commits
+- `git push --force`: Override git history. Usually used when rebasing.
+- `git push --force-with-lease`: Safer than force. It checks if the history was overriden, otherwise it will push.
 - `git fetch`: Fetch commits from remote
 - `git pull`: Fetch commits and merge
 - `git fetch --prune`: Remove branches that no longer exists on remote before fetching
