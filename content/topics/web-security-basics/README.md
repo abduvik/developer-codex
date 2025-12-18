@@ -147,3 +147,7 @@ This is to ensure that 3rd party libraries loaded especially from CDNs hasn't be
 ```
 
 Avoid using `latest` libraries.
+
+## resources
+
+- [OWASP Top 10 Web Application Security Risks](https://www.youtube.com/watch?v=wUaeKEl1RCw)
