@@ -147,6 +147,82 @@ export const TodoContainer = (props: TodoContainerProps) => {
 `useEffect` run twice when using `React.StrictMode` as a way to protect against unpredicted or bad side effects. This to
 make sure you call the clean-up function for example and make sure the components are always predictable.
 
+#### More Hooks
+
+- `useTransition`
+
+It's used running async or long running function in a non-blocking way. It can be done manually with other hooks but
+this more easier to use and it's helpful with API calls or long-running processes. It can also be wrapped into an
+`ErrorBoundary` when the async function throws an error.
+
+```tsx
+import { useTransition } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+
+function SubmitButton({ submitAction }) {
+  const [isPending, startTransition] = useTransition();
+
+  return (
+    <button
+      disabled={isPending}
+      onClick={() => {
+        startTransition(async () => {
+          await submitAction();
+        });
+      }}
+    >
+      Submit
+    </button>
+  );
+}
+
+export function AddCommentContainer() {
+  return (
+    <ErrorBoundary fallback={<p>⚠️Something went wrong</p>}>
+      <SubmitButton />
+    </ErrorBoundary>
+  );
+}
+```
+
+- `useActionState`
+
+It's used to submit the state of the form. If using a framework that supports RSC, it will can separate the action to be
+on the server side.
+
+`const [state, formAction, isPending] = useActionState(fn, initialState, permalink?);`
+
+```tsx
+import { useActionState } from "react";
+
+// Simulated async "action"
+async function submitForm(prevState: unknown, formData: FormData) {
+  await new Promise((r) => setTimeout(r, 1000)); // simulate delay
+  const name = formData.get("name") as String;
+  if (!name) {
+    return { message: "Name is required", success: false };
+  }
+  return { message: `Hello, ${name}!`, success: true };
+}
+
+export default function GreetForm() {
+  const [state, formAction, isPending] = useActionState(submitForm, {
+    message: "",
+    success: null,
+  });
+
+  return (
+    <form action={formAction}>
+      <input type="text" name="name" placeholder="Enter your name" />
+      <button type="submit" disabled={isPending}>
+        {isPending ? "Submitting..." : "Submit"}
+      </button>
+      {state.message && <p>{state.message}</p>}
+    </form>
+  );
+}
+```
+
 #### Change Detection
 
 Reactivity in React is made possible through the use of a virtual DOM (Document Object Model). The virtual DOM is a

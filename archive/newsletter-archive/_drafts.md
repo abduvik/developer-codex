@@ -28,7 +28,7 @@
 - [IT Salary Survey December 2024](https://ksyula.github.io/Salary-report/)
 - [Today I Learned Github repos topic](https://github.com/topics/til)
 - [SVGRepo](https://www.svgrepo.com/)
-
+- [TailwindSQL](https://tailwindsql.xyz/)
 ## YouTube Video
 
 - [The Golden Rule Of Web Design (and why you're breaking it)](https://www.youtube.com/watch?v=CASPWJUsHPM)
