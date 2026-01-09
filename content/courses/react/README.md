@@ -187,8 +187,8 @@ export function AddCommentContainer() {
 
 - `useActionState`
 
-It's used to submit the state of the form. If using a framework that supports RSC, it will can separate the action to be
-on the server side.
+It's used to submit the state of the form. If using a framework that supports RSC, it can separate the action to be on
+the server side. Previously was called `useFormState`.
 
 `const [state, formAction, isPending] = useActionState(fn, initialState, permalink?);`
 
