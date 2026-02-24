@@ -355,6 +355,8 @@ There are a couple of routers supported
 
 There is also [`wouter`](https://github.com/molefrog/wouter) which is a tiny router with a small bundle size.
 
+### Redux
+
 ## Extra content
 
 - [Lin Clark - A Cartoon Intro to Fiber - React Conf 2017](https://www.youtube.com/watch?v=ZCuYPiUIONs)
