@@ -53,3 +53,7 @@ title: Useful Links
 - [The peculiar case of Japanese web design](https://sabrinas.space/)
 - [70+ Job Find Websites For Developers & Other Tech Professionals](https://medium.com/@traversymedia/70-job-find-websites-for-developers-other-tech-professionals-34cdb45518be)
 - [Reverse-Engineering YouTube: Revisited](https://tyrrrz.me/blog/reverse-engineering-youtube-revisited)
+
+## Websites
+
+- [State of JS](https://2025.stateofjs.com/en-US/)
