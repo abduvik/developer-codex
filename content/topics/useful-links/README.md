@@ -57,3 +57,7 @@ title: Useful Links
 ## Websites
 
 - [State of JS](https://2025.stateofjs.com/en-US/)
+
+## Libraries
+
+- [CKEditor WWYSIWYG editor](https://github.com/ckeditor/ckeditor5/)
