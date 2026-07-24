@@ -61,3 +61,7 @@ title: Useful Links
 ## Libraries
 
 - [CKEditor WWYSIWYG editor](https://github.com/ckeditor/ckeditor5/)
+
+## Repos
+
+- [NAPS2 for scanning and printing](https://github.com/cyanfish/naps2)
